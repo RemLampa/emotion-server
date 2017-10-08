@@ -20,6 +20,14 @@
   ```
 
 ## Accessing the app
+
   `$ docker-machine ip emotion-machine`
   
   Take note of the ip address. You may access it via your browser or provide it in the client.
+  
+## Running tests
+
+  ```sh
+  $ pip install pytest pytest-cov
+  $ py.test -v --cov=src
+  ```
