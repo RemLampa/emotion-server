@@ -1,8 +1,28 @@
-from flask import Blueprint
+from watson_developer_cloud import NaturalLanguageUnderstandingV1
+import watson_developer_cloud.natural_language_understanding.features.v1 as Features
 
-mod_emotion = Blueprint('mod_emotion', __name__, url_prefix='/emotion')
+from . import credentials
+from .model import henry_text
 
+natural_language_understanding = NaturalLanguageUnderstandingV1(
+    username=credentials.username,
+    password=credentials.password,
+    version="2017-02-27"
+)
 
-@mod_emotion.route('/')
-def index():
-    return 'Hello Emotion!'
+response = natural_language_understanding.analyze(
+    text=henry_text,
+    features=[
+        Features.Entities(
+            emotion=True,
+            sentiment=True,
+            limit=2
+        ),
+        Features.Keywords(
+            emotion=True,
+            sentiment=True,
+            limit=2
+        )
+    ]
+)
+

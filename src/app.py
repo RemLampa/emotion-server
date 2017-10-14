@@ -1,6 +1,6 @@
 from flask import Flask
-from src.modules.index.controller import mod_index
-from src.modules.emotion.controller import mod_emotion
+from .modules.index.controller import mod_index
+from .modules.emotion import mod_emotion
 
 app = Flask(__name__)
 

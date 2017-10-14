@@ -2,6 +2,11 @@
 
 ## Setup
 
+  #### Provide your IBM Watson Natural Language Understanding Credentials
+  1. `$ cp /src/modules/emotion/credentials.sample.py /src/modules/emotion/credentials.py`
+  2. Edit [credentials.py](/src/modules/emotion/credentials.py).
+
+  #### Build the server
   1. Install [Docker](https://docs.docker.com/engine/installation/).
   2. Execute via CLI:
   

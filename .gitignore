@@ -220,3 +220,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# MacOS stuff
+.DS_Store
+
+# secret credentials
+credentials.py
