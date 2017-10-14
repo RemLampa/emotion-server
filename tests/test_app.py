@@ -18,7 +18,9 @@ def client(request):
 def test_index(client):
     response = client.get('/')
 
-    assert response.data == b'Hello World!'
+    greeting = json.loads(response.data)['index']
+
+    assert greeting == 'Hello World!'
 
 
 def test_emotion(client):
