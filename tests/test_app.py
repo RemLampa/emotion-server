@@ -1,4 +1,5 @@
 import pytest
+import json
 from src.app import app
 
 
@@ -23,4 +24,6 @@ def test_index(client):
 def test_emotion(client):
     response = client.get('/emotion/')
 
-    assert response.data == b'Hello Emotion!'
+    entities = json.loads(response.data)['entities']
+
+    assert len(entities) > 0
