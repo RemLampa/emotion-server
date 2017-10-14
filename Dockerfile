@@ -15,8 +15,12 @@ COPY config /config
 # Install Python dependencies
 RUN pip3 install -r /config/requirements.txt
 
+# Create server logs folder
+RUN mkdir -p /var/log/uwsgi
+RUN chown -R root /var/log/uwsgi
+
 # EXPOSE PORT
 EXPOSE 80
 
 # Run Flask app via uWSGI
-CMD ["/usr/local/bin/uwsgi", "/config/wsgi.ini"]
+CMD ["/usr/local/bin/uwsgi", "/config/wsgi.docker.ini"]
