@@ -21,6 +21,6 @@ def test_index(client):
 
 
 def test_emotion(client):
-    response = client.get('/emotion')
+    response = client.get('/emotion/')
 
     assert response.data == b'Hello Emotion!'

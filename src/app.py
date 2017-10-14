@@ -1,16 +1,11 @@
 from flask import Flask
+from src.modules.index.controller import mod_index
+from src.modules.emotion.controller import mod_emotion
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def index():
-    return 'Hello World!'
-
-
-@app.route('/emotion')
-def emotion():
-    return 'Hello Emotion!'
+app.register_blueprint(mod_index)
+app.register_blueprint(mod_emotion)
 
 
 if __name__ == '__main__':
