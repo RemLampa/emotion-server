@@ -28,7 +28,7 @@
 
   `$ docker-machine ip emotion-machine`
   
-  Take note of the ip address. You may access it via your browser or provide it in the client.
+  Take note of the IP address. You may access it via your browser or provide it in the client.
   
 ## Running tests
 
@@ -36,3 +36,14 @@
   $ pip install pytest pytest-cov
   $ py.test -v --cov=src
   ```
+  
+## Run these every time you reboot your desktop/laptop
+
+  ```sh
+  $ docker-machine start emotion-machine
+  $ docker-machine ssh emotion-machine 'sudo mount -t vboxsf src /mnt/src'
+  $ eval $(docker-machine env emotion-machine)
+  $ docker start emotion-server
+  ```
+  
+  Access app via the IP address provided by `$ docker-machine ip emotion-machine`.
