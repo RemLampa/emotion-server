@@ -12,6 +12,9 @@ RUN apt-get install -y python3 python3-pip
 # Migrate configuration files
 COPY config /config
 
+# Migrate application files
+COPY src /src
+
 # Install Python dependencies
 RUN pip3 install -r /config/requirements.txt
 

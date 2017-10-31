@@ -25,5 +25,5 @@ else
   docker build -t emotion:latest .
 
   echo Creating Docker container...
-  docker run -it -d -p 80:80 --name emotion-server -v /mnt/src:/src emotion:latest
+  docker run -it -d --restart=always -p 80:80 --name emotion-server -v /mnt/src:/src emotion:latest
 fi
