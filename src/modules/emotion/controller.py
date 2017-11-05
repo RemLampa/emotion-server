@@ -25,4 +25,3 @@ response = natural_language_understanding.analyze(
         )
     ]
 )
-
